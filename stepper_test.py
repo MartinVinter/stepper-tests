@@ -2,8 +2,8 @@ import RPi.GPIO as GPIO
 import time
 
 # GPIO pin setup
-STEP_PIN = 12
-DIR_PIN = 11
+STEP_PIN = 11
+DIR_PIN = 12
 ENABLE_PIN = 16
 
 # Step delay
