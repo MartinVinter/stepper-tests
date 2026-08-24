@@ -6,16 +6,17 @@ DIR = 5
 
 GPIO.setmode(GPIO.BOARD)
 
-GPIO.setup(STEP, GPIO.OUT)
-GPIO.setup(DIR, GPIO.OUT)
+GPIO.setup(STEP, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(DIR, GPIO.OUT, initial=GPIO.LOW)
 
-GPIO.output(DIR, 1)
+GPIO.output(DIR, GPIO.HIGH)
 
-while True:
-    GPIO.output(STEP, 1)
-    print("HIGH")
-    time.sleep(1)
+try:
+    while True:
+        GPIO.output(STEP, GPIO.HIGH)
+        time.sleep(0.001)
+        GPIO.output(STEP, GPIO.LOW)
+        time.sleep(0.001)
 
-    GPIO.output(STEP, 0)
-    print("LOW")
-    time.sleep(1)
+except KeyboardInterrupt:
+    GPIO.cleanup()
