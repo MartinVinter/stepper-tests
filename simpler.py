@@ -14,9 +14,9 @@ GPIO.output(DIR, GPIO.HIGH)
 try:
     while True:
         GPIO.output(STEP, GPIO.HIGH)
-        time.sleep(0.5)
+        time.sleep(2)
         GPIO.output(STEP, GPIO.LOW)
-        time.sleep(0.5)
+        time.sleep(2)
 
 except KeyboardInterrupt:
     GPIO.cleanup()
